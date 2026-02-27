@@ -1,0 +1,132 @@
+<!--
+README:
+Browser Environment Dashboard
+The page shows information about the Browser and Screen also the Webpage Content. 
+The system uses JavaScript browser objects to display browser screen and page information through the navigator screen document location history and window objects. 
+The system enables users to control navigation while the background color changes according to thes different screen width measurements.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Browser Environment Dashboard</title>
+
+    <style>
+        body 
+        {
+            font-family: Arial;
+            margin: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .profile 
+        {
+            background: black;
+            color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .box 
+        {
+            border: 1px solid gray;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        button 
+        {
+            margin: 5px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="profile">
+    <h2>Student Profile</h2>
+    <p>Name: Arjay Walter B. Vargas</p>
+    <p>Sex: Male</p>
+    <p>Address: Zone 6, San Benito, Goa Camarines Sur</p>
+    <p>Course, Year & Section: BSIT-2D</p>
+    <p>School: Partido State University</p>
+    <p>Semester & AY: 2nd Semester, AY 2025-2026</p>
+    <p>Subject Code & Title: Event Driven Programming</p>
+    <p>Instructor: Arjay F. Abio</p>
+</div>
+
+<div class="box">
+    <h3>Browser Information</h3>
+    <p id="browserInfo"></p>
+</div>
+
+<div class="box">
+    <h3>Page Information</h3>
+    <p id="pageInfo"></p>
+    <button onclick="changeTitle()">Change Title</button>
+</div>
+
+<div class="box">
+    <h3>Navigation</h3>
+    <button onclick="location.reload()">Reload</button>
+    <button onclick="location.href='https: //www.example.com'">Go to Example</button>
+    <button onclick="history.back()">Back</button>
+    <button onclick="history.forward()">Forward</button>
+</div>
+
+<script>
+
+document.getElementById("browserInfo").innerHTML =
+"Browser: " + navigator.appName + "<br>" +
+"Version: " + navigator.appVersion + "<br>" +
+"Platform: " + navigator.platform + "<br>" +
+"Java Enabled: " + navigator.javaEnabled() + "<br>" +
+"Resolution: " + screen.width + " x " + screen.height + "<br>" +
+"Available Size: " + screen.availWidth + " x " + screen.availHeight + "<br>" +
+"Color Depth: " + screen.colorDepth;
+
+function showPageInfo()
+{
+    document.getElementById("pageInfo").innerHTML =
+    "URL: " + location.href + "<br>" +
+    "Hostname: " + location.hostname + "<br>" +
+    "Title: " + document.title;
+}
+
+showPageInfo();
+
+function changeTitle()
+{
+    let newTitle = prompt("Enter new title:");
+    if(newTitle){
+        document.title = newTitle;
+        showPageInfo();
+    }
+}
+
+function changeBackground(){
+    let width = window.innerWidth;
+
+    if(width < 600)
+    {
+        document.body.style.backgroundColor = "blue";
+    }
+    else if(width <= 991)
+    {
+        document.body.style.backgroundColor = "green";
+    }
+    else
+    {
+        document.body.style.backgroundColor = "orange";
+    }
+}
+
+changeBackground();
+
+window.addEventListener("resize", changeBackground);
+
+</script>
+
+</body>
+</html>

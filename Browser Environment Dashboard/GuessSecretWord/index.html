@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guess The Secret Word</title>
+
+    <style>
+        body
+        {
+            font-family: Arial;
+            background-color: lightgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container
+        {
+            background: white;
+            padding: 20px;
+            width: 350px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        input, button
+        {
+            padding: 8px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>Highest Score: <span id="highScore" style="background-color:yellow; padding:3px;">0</span></h3>
+
+    <h2>Guess the Secret Word</h2>
+
+    <p id="hint"></p>
+    <p id="hintMessage"></p>
+
+    <input type="text" id="guessInput" placeholder="Enter word">
+    <br>
+    <button onclick="checkGuess()">Submit</button>
+    <button onclick="showHint()">Hint</button>
+    <button onclick="restartGame()">Restart</button>
+
+    <p id="message"></p>
+    <p>Attempts Left: <span id="attempts" style="background-color:red; color:white; padding:3px;">5</span></p>
+
+    <hr>
+    <p><b>Arjay Walter B. Vargas</b></p>
+    <p>BSIT - 2D</p>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
